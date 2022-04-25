@@ -1,5 +1,6 @@
 package web.repository;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.model.User;
@@ -11,8 +12,9 @@ import java.util.List;
 @Repository
 public class UserRepositoryImp implements UserRepository{
 
-    @PersistenceContext
+
     @Autowired
+    @PersistenceContext
     private EntityManager entityManager;
 
 
