@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить пользователя</title>
+</head>
+<body>
+<div th:align="center">
+<h2>Добавить пользователя</h2>
+
+    <form th:action="@{/users/addUser}" th:object="${user}" method="post">
+        <fieldset>
+
+            <legend th:align="center">Данные пользователя</legend>
+            <p>
+                <label th:for="name">Имя</label>
+                <input type="text" name="firstName" th:id="firstName" th:value="${user.getFirstName()}">
+            </p>
+            <p style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">firstName error</p>
+            <p>
+                <label th:for="lastName">Фамилия</label>
+                <input type="text" name="lastName" th:id="lastName" th:value="${user.getLastName()}"><br/>
+
+            </p>
+            <p style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">lastName error</p>
+            <p>
+                <label th:for="age">Возраст</label>
+                <input type="text" name="age" th:id="age" th:value="${user.getAge}"><br/>
+            </p>
+            <p style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</p>
+        </fieldset>
+        <button type="submit">Сохранить пользователя</button>
+    </form>
+    <br/>
+    <form th:action="@{/}">
+        <button type="submit" class="btn btn-outline-danger">Назад к списку пользователей</button>
+    </form>
+</div>
+</body>
+</html>
